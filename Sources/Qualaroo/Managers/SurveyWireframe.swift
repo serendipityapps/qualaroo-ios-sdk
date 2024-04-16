@@ -76,4 +76,8 @@ extension SurveyWireframe: SurveyWireframeProtocol {
   func isMandatory() -> Bool {
     return survey.mandatory
   }
+    
+  func surveyAlias() -> String {
+    return survey.alias
+  }
 }

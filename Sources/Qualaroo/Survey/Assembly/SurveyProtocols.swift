@@ -84,6 +84,8 @@ protocol SurveyWireframeProtocol: class {
   func nextNode(for: NodeId?, response: NodeResponse?) -> Node?
   func currentSurveyId() -> Int
   func isMandatory() -> Bool
+  func surveyAlias() -> String
+
 }
 
 protocol ReportRequestMemoryProtocol {

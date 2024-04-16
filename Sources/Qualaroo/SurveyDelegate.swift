@@ -14,11 +14,11 @@ import Foundation
 @objc(QualarooSurveyDelegate)
 public protocol SurveyDelegate: class {
   /// Survey view has loaded.
-  func surveyDidStart()
+  func surveyDidStart(surveyAlias:String)
   /// User has dismissed survey before finishing it.
-  func surveyDidDismiss()
+  func surveyDidDismiss(surveyAlias:String)
   /// User finished survey (or dismissed it on last message).
-  func surveyDidFinish()
+  func surveyDidFinish(surveyAlias:String)
   /// Some internal error occured. Survey was closed and probably not finished.
   func surveyDidClose(errorMessage: String)
   /// Some question will be sending callbacks after user has responded. This method is optional.

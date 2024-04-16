@@ -122,16 +122,16 @@ private extension SurveyInteractor {
   
   func surveyStarted() {
     storage.saveUserHaveSeen(surveyWithID: wireframe.currentSurveyId())
-    delegate?.surveyDidStart()
+      delegate?.surveyDidStart(surveyAlias: wireframe.surveyAlias())
   }
   
   func surveyFinished() {
     storage.saveUserHaveFinished(surveyWithID: wireframe.currentSurveyId())
-    delegate?.surveyDidFinish()
+      delegate?.surveyDidFinish(surveyAlias: wireframe.surveyAlias())
   }
   
   func surveyDismissed() {
-    delegate?.surveyDidDismiss()
+      delegate?.surveyDidDismiss(surveyAlias: wireframe.surveyAlias())
   }
   
   func surveyClosed(_ message: String) {
