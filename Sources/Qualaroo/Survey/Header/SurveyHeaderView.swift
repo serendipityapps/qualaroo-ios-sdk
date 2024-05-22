@@ -304,13 +304,13 @@ class SurveyHeaderView: XibView {
         var size = 16.0
         if #available(iOS 16.0, *) {
             
-            size = Double(fontSize.split(separator: "px")[0]) ?? 12.0
+            size = Double(fontSize.split(separator: "px")[0]) ?? 16.0
         } else {
             size = 16.0
             // Fallback on earlier versions
         }
-        let sizeInPoints = CGFloat(size).pixelToPoints()
-        uilabel.font = uilabel.font.withSize(sizeInPoints)
+//        let sizeInPoints = CGFloat(size).pixelToPoints()
+        uilabel.font = uilabel.font.withSize(size)
     }
 }
 

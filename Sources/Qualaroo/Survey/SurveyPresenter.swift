@@ -163,9 +163,7 @@ private extension SurveyPresenter {
             // Fallback on earlier versions
         }
         let pointVal = value.pixelToPoints()
-      print(value)
-        print(pointVal)
-        return 22.5
+        return pointVal
        
     }
     
@@ -173,8 +171,6 @@ private extension SurveyPresenter {
         let pointsPerInch: CGFloat = 72
         let screenScale = UIScreen.main.scale
         let pointsPerPixel = pointsPerInch / screenScale
-        print(pointsPerPixel)
-        print("pixelsToPoints")
         return pixels * pointsPerPixel
     }
 
