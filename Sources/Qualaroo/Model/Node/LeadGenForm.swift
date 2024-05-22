@@ -48,6 +48,7 @@ class LeadGenFormFactory {
                        alias: alias(),
                        description: description(),
                        font_style_decription: fontStyleDescription(),
+                       font_size_description: fontSizeDescription(),
                        buttonText: buttonText(),
                        nextNodeId: nextNodeId(),
                        questionList: questions)
@@ -82,6 +83,13 @@ class LeadGenFormFactory {
       }
       return font_style_description.plainText()
     }
+    
+    private func fontSizeDescription() -> String {
+      guard let font_style_description = dictionary["font_size_description"] as? String else {
+        return "12px"
+      }
+      return font_style_description.plainText()
+    }
   
   private func buttonText() -> String {
     guard let nextButtonText = dictionary["send_text"] as? String else {
@@ -112,6 +120,7 @@ struct LeadGenForm {
   let alias: String?
   let description: String
   let font_style_decription:String
+  let font_size_description:String
   let buttonText: String
   let nextNodeId: NodeId?
   let questionList: [Question]

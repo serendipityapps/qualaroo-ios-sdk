@@ -264,9 +264,10 @@ extension SurveyView: SurveyViewInterface {
   }
   func displayLeadGenForm(with text: String,
                           fontStyleTitle:String,
+                          fontSizeTitle:String,
                           leadGenView: LeadGenFormView,
                           buttonModel: SurveyButtonsView.ButtonViewModel) {
-      header.displayLeadGenForm(title: text, duration: kAnimationTime,fontStyleTitle: fontStyleTitle).run()
+      header.displayLeadGenForm(title: text, duration: kAnimationTime,fontStyleTitle: fontStyleTitle, fontSizeTitle: fontSizeTitle).run()
     replaceEmbeddedView(with: leadGenView, duration: kAnimationTime).run()
     footer.configureButton(with: buttonModel, duration: kAnimationTime).run()
   }

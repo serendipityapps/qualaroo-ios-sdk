@@ -62,12 +62,17 @@ class QuestionViewFactory {
                                          buttonHandler: buttonHandler,
                                          answerHandler: answerHandler,
                                          question: question)
-    view.setupView(backgroundColor: theme.colors.background,
-                   minText: question.npsMinText ?? "",
-                   maxText: question.npsMaxText ?? "",
-                   textColor: theme.colors.text,
-                   npsColor: theme.colors.uiSelected,
-                   interactor: interactor)
+      view.setupView(
+          npsBackgroundColor:theme.colors.npsBackgroundColor,
+          npsSelectedColor:theme.colors.npsSelectedColor,
+          ansColor:theme.colors.ansColor,
+          ansSelectedColor: theme.colors.ansSelectedColor,
+          backgroundColor: theme.colors.background,
+                     minText: question.npsMinText ?? "",
+                     maxText: question.npsMaxText ?? "",
+                     textColor: theme.colors.text,
+                     npsColor: theme.colors.uiSelected,
+                     interactor: interactor)
     return view
   }
   private func textQuestionView(with question: Question) -> AnswerTextView? {

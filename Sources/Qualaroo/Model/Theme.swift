@@ -21,6 +21,11 @@ struct ColorTheme : Equatable {
   let buttonDisabled: UIColor
   let buttonTextEnabled: UIColor
   let buttonTextDisabled: UIColor
+    let buttonsRadius:String
+    let npsBackgroundColor: UIColor
+    let npsSelectedColor: UIColor
+    let ansColor:UIColor
+    let ansSelectedColor:UIColor
   
   init(background: UIColor,
        text: UIColor,
@@ -29,7 +34,12 @@ struct ColorTheme : Equatable {
        buttonEnabled: UIColor,
        buttonDisabled: UIColor,
        buttonTextEnabled: UIColor,
-       buttonTextDisabled: UIColor) {
+       buttonTextDisabled: UIColor,
+     buttonsRadius:String,
+       npsBackgroundColor: UIColor,
+       npsSelectedColor: UIColor,
+       ansColor:UIColor,
+       ansSelectedColor:UIColor) {
     self.background = background
     self.text = text
     self.uiNormal = uiNormal
@@ -38,6 +48,11 @@ struct ColorTheme : Equatable {
     self.buttonEnabled = buttonEnabled
     self.buttonTextEnabled = buttonTextEnabled
     self.buttonTextDisabled = buttonTextDisabled
+      self.buttonsRadius = buttonsRadius
+      self.npsBackgroundColor = npsBackgroundColor
+      self.npsSelectedColor = npsSelectedColor
+      self.ansColor = ansColor
+      self.ansSelectedColor = ansSelectedColor
   }
   
   static func == (lhs: ColorTheme, rhs: ColorTheme) -> Bool {
@@ -117,7 +132,12 @@ struct Theme: Equatable {
       let buttonEnabled = UIColor(fromHex: dictionary["button_enabled_color"]),
       let buttonDisabled = UIColor(fromHex: dictionary["button_disabled_color"]),
       let buttonTextEnabled = UIColor(fromHex: dictionary["button_text_enabled"]),
-      let buttonTextDisabled = UIColor(fromHex: dictionary["button_text_disabled"]) else { return nil }
+      let buttonTextDisabled = UIColor(fromHex: dictionary["button_text_disabled"]),
+      let buttonsRadius = dictionary["buttons_radius"],
+      let npsBackgroundColor = UIColor(fromHex: dictionary["nps_background_color"]),
+      let npsSelectedColor = UIColor(fromHex: dictionary["nps_selected_color"]),
+      let ansColor = UIColor(fromHex: dictionary["ans_color"]),
+      let ansSelectedColor = UIColor(fromHex: dictionary["ans_selected_color"])else { return nil }
   return ColorTheme(background: background,
                     text: text,
                     uiNormal: uiNormal,
@@ -125,7 +145,12 @@ struct Theme: Equatable {
                     buttonEnabled: buttonEnabled,
                     buttonDisabled: buttonDisabled,
                     buttonTextEnabled: buttonTextEnabled,
-                    buttonTextDisabled: buttonTextDisabled)
+                    buttonTextDisabled: buttonTextDisabled,
+                    buttonsRadius: buttonsRadius as! String,
+                    npsBackgroundColor: npsBackgroundColor,
+                    npsSelectedColor: npsSelectedColor,
+                    ansColor:ansColor,
+                    ansSelectedColor:ansSelectedColor)
   }
   
   private static func oldStyleColors(_ dictionary: [String: Any]) -> ColorTheme? {
@@ -135,7 +160,12 @@ struct Theme: Equatable {
       let text = UIColor(fromHex: dictionary["text_color"]),
       let buttonText = UIColor(fromHex: dictionary["button_text_color"]),
       let buttonDisabled = UIColor(fromHex: dictionary["button_disabled_color"]),
-      let buttonEnabled = UIColor(fromHex: dictionary["button_enabled_color"]) else { return nil }
+      let buttonsRadius = dictionary["buttons_radius"],
+      let buttonEnabled = UIColor(fromHex: dictionary["button_enabled_color"]),
+      let npsBackgroundColor = UIColor(fromHex: dictionary["npsbackground_color"]),
+      let npsSelectedColor = UIColor(fromHex: dictionary["npsSelected_color"]),
+      let ansColor = UIColor(fromHex: dictionary["ans_color"]),
+      let ansSelectedColor = UIColor(fromHex: dictionary["ansSelected_color"])else { return nil }
     return ColorTheme(background: background,
                       text: text,
                       uiNormal: border,
@@ -143,7 +173,12 @@ struct Theme: Equatable {
                       buttonEnabled: buttonEnabled,
                       buttonDisabled: buttonDisabled,
                       buttonTextEnabled: buttonText,
-                      buttonTextDisabled: buttonText)
+                      buttonTextDisabled: buttonText,
+                      buttonsRadius: buttonsRadius as! String,
+                      npsBackgroundColor: npsBackgroundColor,
+                      npsSelectedColor: npsSelectedColor,
+                      ansColor:ansColor,
+                      ansSelectedColor:ansSelectedColor)
   }
   
   internal static func fallbackColorTheme() -> ColorTheme {
@@ -154,7 +189,12 @@ struct Theme: Equatable {
                       buttonEnabled: UIColor.darkGray,
                       buttonDisabled: UIColor.lightGray,
                       buttonTextEnabled: UIColor.black,
-                      buttonTextDisabled: UIColor.black)
+                      buttonTextDisabled: UIColor.black,
+                      buttonsRadius: "10px",
+                      npsBackgroundColor: UIColor.black,
+                      npsSelectedColor: UIColor.black,
+                      ansColor:UIColor.black,
+                      ansSelectedColor:UIColor.black)
   }
     
   private static func dimStyle(_ string: String?) -> UIBlurEffect.Style {
