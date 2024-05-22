@@ -27,7 +27,7 @@
 - Continue reading this page.
 - [Changelog](https://github.com/qualaroo/QualarooSDKiOS/wiki/What-changed-in-the-last-version%3F)
 
-### Released Version
+### Released Versions
 ```
 1.14.11(Latest)- 22 May 2024
 1.14.9(Previous)- 16 April 2024
