@@ -28,6 +28,7 @@ protocol SurveyViewInterface: class {
                        buttonModel: SurveyButtonsView.ButtonViewModel)
   func displayLeadGenForm(with text: String,
                           fontStyleTitle:String,
+                          fontSizeTitle:String,
                           leadGenView: LeadGenFormView,
                           buttonModel: SurveyButtonsView.ButtonViewModel)
   func focusOnInput()

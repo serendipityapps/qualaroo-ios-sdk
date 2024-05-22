@@ -74,7 +74,7 @@ class SurveyPresenter {
       return
     }
     surveyViewInterface.displayLeadGenForm(with: converter.convert(leadGenForm.description),
-                                           fontStyleTitle: leadGenForm.font_style_decription,
+                                           fontStyleTitle: leadGenForm.font_style_decription, fontSizeTitle: leadGenForm.font_size_description,
                                            leadGenView: embeddedView,
                                            buttonModel: buttonViewModel(with: leadGenForm))
   }
@@ -127,14 +127,18 @@ private extension SurveyPresenter {
   func copyViewModel(with question: Question) -> SurveyHeaderView.CopyViewModel {
     return SurveyHeaderView.CopyViewModel(title: converter.convert(question.title),
                                           description: converter.convert(question.description),
-                                          descriptionPlacement: question.descriptionPlacement,fontStyleQuestion: question.fontStyleQuestion,fontStyleDescription: question.fontStyleDescription)
+                                          descriptionPlacement: question.descriptionPlacement,fontStyleQuestion: question.fontStyleQuestion,fontStyleDescription: question.fontStyleDescription,
+                                          fontSizeQuestion: question.fontSizeQuestion,
+                                          fontSizeDescription: question.fontSizeDescription
+    )
   }
   
   func buttonViewModel(with colors: ColorTheme) -> SurveyButtonsView.ViewModel {
+      let buttonRadius = getButtonRadiusValue(buttonRadius: colors.buttonsRadius)
     return SurveyButtonsView.ViewModel(enabledColor: colors.buttonEnabled,
                                        disabledColor: colors.buttonDisabled,
                                        textEnabledColor: colors.buttonTextEnabled,
-                                       textDisabledColor: colors.buttonTextDisabled)
+                                       textDisabledColor: colors.buttonTextDisabled, buttonsRadius: buttonRadius)
   }
   
   func closeButtonModel(with theme: Theme) -> SurveyHeaderView.CloseButtonViewModel {
@@ -148,6 +152,32 @@ private extension SurveyPresenter {
                                 dimAlpha: theme.dimAlpha,
                                 fullscreen: theme.fullscreen)
   }
+    
+    private func getButtonRadiusValue(buttonRadius:String) -> CGFloat{
+        var value:CGFloat = 12.0
+        if #available(iOS 16.0, *) {
+            
+            value = Double(buttonRadius.split(separator: "px")[0]) ?? 12.0
+        } else {
+            value = 12.0
+            // Fallback on earlier versions
+        }
+        let pointVal = value.pixelToPoints()
+      print(value)
+        print(pointVal)
+        return 22.5
+       
+    }
+    
+    func pixelsToPoints(pixels: CGFloat) -> CGFloat {
+        let pointsPerInch: CGFloat = 72
+        let screenScale = UIScreen.main.scale
+        let pointsPerPixel = pointsPerInch / screenScale
+        print(pointsPerPixel)
+        print("pixelsToPoints")
+        return pixels * pointsPerPixel
+    }
+
 }
 
 // MARK: - SurveyViewDelegate

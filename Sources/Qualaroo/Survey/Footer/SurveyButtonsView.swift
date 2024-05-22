@@ -23,6 +23,7 @@ class SurveyButtonsView: XibView {
     let disabledColor: UIColor
     let textEnabledColor: UIColor
     let textDisabledColor: UIColor
+    let buttonsRadius: CGFloat
   }
   
   private struct Const {
@@ -46,7 +47,7 @@ class SurveyButtonsView: XibView {
     nextButton.setBackgroundColor(color: viewModel.disabledColor, forState: .disabled)
     nextButton.setTitleColor(viewModel.textEnabledColor, for: .normal)
     nextButton.setTitleColor(viewModel.textDisabledColor, for: .disabled)
-    nextButton.layer.cornerRadius = SurveyView.Const.buttonsCornerRadius
+      nextButton.layer.cornerRadius = viewModel.buttonsRadius
     self.totalHeightViewConstraint.constant = totalHeight
   }
   

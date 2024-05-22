@@ -27,8 +27,10 @@ class QuestionFactory {
                     type: try type(),
                     title: try title(),
                     fontStyleQuestion: fontStyleQuestion(),
+                    fontSizeQuestion: fontSizeQuestion(),
                     description: description(),
                     fontStyleDescription: fontStyleDescription(),
+                    fontSizeDescription: fontSizeDescription(),
                     descriptionPlacement: descriptionPlacement(),
                     buttonText: buttonText(),
                     shouldShowButton: shouldShowButton(),
@@ -71,6 +73,11 @@ class QuestionFactory {
        let style = dictionary["font_style_question"] as? String
         return style?.plainText() ?? "normal"
     }
+    
+    private func fontSizeQuestion()  -> String {
+       let style = dictionary["font_size_question"] as? String
+        return style?.plainText() ?? "12px"
+    }
   
   private func description() -> String {
     let description = dictionary["description"] as? String
@@ -80,6 +87,11 @@ class QuestionFactory {
     private func fontStyleDescription()  -> String {
        let style = dictionary["font_style_description"] as? String
         return style?.plainText() ?? "normal"
+    }
+    
+    private func fontSizeDescription()  -> String {
+       let style = dictionary["font_size_description"] as? String
+        return style?.plainText() ?? "12px"
     }
   
   private func descriptionPlacement() -> Question.DescriptionPlacement {
@@ -295,8 +307,10 @@ struct Question {
   let type: Category
   let title: String
   let fontStyleQuestion:String
+  let fontSizeQuestion:String
   let description: String
   let fontStyleDescription:String
+  let fontSizeDescription:String
   let descriptionPlacement: DescriptionPlacement
   let buttonText: String
   let shouldShowButton: Bool
