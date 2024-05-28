@@ -147,7 +147,9 @@ extension UrlComposer: ReportUrlComposerProtocol {
     var components = commonUrlComponents()
     components.path = UrlPiece.responsePath
     components.queryItems = responseQuery(response)
-    return components.url
+    guard let modifiedUrl = components.url?.absoluteString.replacingOccurrences(of: "+", with: "%2B") else {
+          return components.url }
+    return URL(string: modifiedUrl)
   }
   private func responseQuery(_ response: NodeResponse) -> [URLQueryItem] {
     return [sessionInfoQuery(),
