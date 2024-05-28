@@ -29,7 +29,7 @@
 
 ### Released Versions
 ```
-1.14.14(Latest)- 23 May 2024
+1.14.14(Latest)- 28 May 2024
 1.14.9(Previous)- 16 April 2024
 ```
 
