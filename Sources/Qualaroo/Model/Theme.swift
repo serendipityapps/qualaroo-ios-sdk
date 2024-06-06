@@ -188,13 +188,13 @@ struct Theme: Equatable {
                       uiSelected: UIColor.black,
                       buttonEnabled: UIColor.darkGray,
                       buttonDisabled: UIColor.lightGray,
-                      buttonTextEnabled: UIColor.black,
-                      buttonTextDisabled: UIColor.black,
+                      buttonTextEnabled: UIColor.white,
+                      buttonTextDisabled: UIColor.white,
                       buttonsRadius: "10px",
-                      npsBackgroundColor: UIColor.black,
-                      npsSelectedColor: UIColor.black,
+                      npsBackgroundColor: UIColor.white,
+                      npsSelectedColor: UIColor(fromHex: "#82BF4A") ?? UIColor.black,
                       ansColor:UIColor.black,
-                      ansSelectedColor:UIColor.black)
+                      ansSelectedColor:UIColor.white)
   }
     
   private static func dimStyle(_ string: String?) -> UIBlurEffect.Style {
