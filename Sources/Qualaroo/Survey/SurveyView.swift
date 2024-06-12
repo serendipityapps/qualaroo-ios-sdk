@@ -73,7 +73,12 @@ class SurveyView: UIViewController {
     super.viewDidLoad()
     passDelegate()
     presenter.viewLoaded(self)
+    let containerViewTap = UITapGestureRecognizer(target: self, action: #selector(self.handleContainerViewTap(_:)))
+      containerView.addGestureRecognizer(containerViewTap)
   }
+   
+    @objc func handleContainerViewTap(_ sender: UITapGestureRecognizer) {
+    }
   
   override func viewDidAppear(_ animated: Bool) {
     presenter.viewDisplayed(self)
