@@ -30,7 +30,7 @@
 ### Released Versions
 
 #### Note: Before updating the SDK version here, please ensure that you have saved the design changes in the Qualaroo Nudge Editor
-1.14.17(Latest)- 6 June 2024
+1.14.17(Latest)- 12 June 2024
 
 1.14.16(Previous)- 6 June 2024
 
